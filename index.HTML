@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shamkar Kumar — Digital Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12172B;
+    --paper:#F6F3ED;
+    --cobalt:#2545F5;
+    --mustard:#E8A93A;
+    --slate:#5B6478;
+    --line:rgba(18,23,43,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk', sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(246,243,237,0.9);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    height:64px;
+  }
+  .brand{font-weight:700; font-size:1.05rem;}
+  .navlinks{display:flex; gap:28px; font-size:0.92rem;}
+  .navlinks a{text-decoration:none; color:var(--slate); transition:color .15s;}
+  .navlinks a:hover{color:var(--ink);}
+
+  /* HERO */
+  header.hero{
+    padding:100px 0 80px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .kicker{
+    color:var(--cobalt);
+    font-weight:600;
+    font-size:0.95rem;
+    margin-bottom:14px;
+  }
+  h1.name{
+    font-size:clamp(2.6rem, 6vw, 4.2rem);
+    font-weight:700;
+    line-height:1.02;
+  }
+  .role{
+    margin-top:18px;
+    font-size:1.25rem;
+    color:var(--slate);
+    max-width:520px;
+  }
+  .hero-actions{
+    margin-top:36px;
+    display:flex;
+    gap:16px;
+  }
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    border-radius:2px;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--ink); color:var(--paper);}
+  .btn-primary:hover{background:var(--cobalt);}
+  .btn-ghost{border:1.5px solid var(--ink); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--cobalt); color:var(--cobalt);}
+
+  /* growth motif svg */
+  .motif{width:100%; height:auto;}
+
+  /* SECTIONS */
+  section{padding:64px 0; border-top:1px solid var(--line);}
+  .section-head{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin-bottom:36px;
+  }
+  .section-head h2{font-size:1.8rem;}
+  .section-num{color:var(--slate); font-size:0.9rem;}
+
+  /* ABOUT */
+  .about-text{max-width:640px; font-size:1.05rem; color:#2b2f3d;}
+
+  /* EDUCATION */
+  .edu-card{
+    display:grid;
+    grid-template-columns:140px 1fr;
+    gap:24px;
+    padding:24px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .edu-card:last-child{border-bottom:none;}
+  .edu-period{color:var(--slate); font-size:0.92rem;}
+  .edu-degree{font-weight:600; font-size:1.15rem; margin-bottom:4px;}
+  .edu-school{color:var(--slate); margin-bottom:8px;}
+  .edu-notes{font-size:0.95rem; color:#2b2f3d;}
+
+  /* SKILLS */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    gap:0;
+  }
+  .skill-item{
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+    padding-right:20px;
+  }
+  .skill-name{font-weight:500;}
+  .skill-bar{
+    width:90px; height:4px; background:var(--line); position:relative;
+  }
+  .skill-bar span{
+    position:absolute; left:0; top:0; height:100%; background:var(--cobalt);
+  }
+
+  /* PROJECTS */
+  .project-list{display:flex; flex-direction:column;}
+  .project-item{
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:16px;
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .project-item:last-child{border-bottom:none;}
+  .project-name{font-weight:600; font-size:1.15rem;}
+  .project-desc{color:var(--slate); font-size:0.95rem; margin-top:4px; max-width:520px;}
+  .project-link{
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.9rem;
+    color:var(--cobalt);
+    white-space:nowrap;
+    border-bottom:1.5px solid var(--cobalt);
+    padding-bottom:2px;
+  }
+  .project-link:hover{color:var(--ink); border-color:var(--ink);}
+
+  /* EXPERIENCE */
+  .exp-item{padding:22px 0; border-bottom:1px solid var(--line);}
+  .exp-item:last-child{border-bottom:none;}
+  .exp-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+  .exp-role{font-weight:600; font-size:1.1rem;}
+  .exp-org{color:var(--cobalt); font-weight:500;}
+  .exp-period{color:var(--slate); font-size:0.9rem;}
+  .exp-desc{margin-top:8px; color:#2b2f3d; max-width:640px;}
+
+  /* CONTACT */
+  .contact-box{
+    background:var(--ink); color:var(--paper);
+    padding:56px 48px; border-radius:2px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;
+  }
+  .contact-box h2{color:var(--paper);}
+  .contact-links{display:flex; gap:20px; flex-wrap:wrap;}
+  .contact-links a{
+    text-decoration:none; color:var(--paper); border-bottom:1px solid var(--mustard);
+    padding-bottom:2px; font-weight:500;
+  }
+
+  footer{
+    padding:32px 0 48px; text-align:center; color:var(--slate); font-size:0.85rem;
+  }
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-grid .motif-col{order:-1;}
+    .edu-card{grid-template-columns:1fr;}
+    .contact-box{flex-direction:column; align-items:flex-start;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Shamkar Kumar</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">Digital Marketing</div>
+      <h1 class="name">Shamkar<br>Kumar</h1>
+      <p class="role">Digital marketing professional focused on turning campaigns into measurable growth — SEO, paid media, content strategy, and analytics.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="#experience">View work</a>
+      </div>
+    </div>
+    <div class="motif-col">
+      <svg class="motif" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <line x1="30" y1="20" x2="30" y2="260" stroke="#5B6478" stroke-opacity="0.3" stroke-width="1"/>
+        <line x1="30" y1="260" x2="380" y2="260" stroke="#5B6478" stroke-opacity="0.3" stroke-width="1"/>
+        <polyline points="30,220 90,200 150,210 210,150 270,120 330,60 380,40" fill="none" stroke="#2545F5" stroke-width="3"/>
+        <circle cx="380" cy="40" r="6" fill="#E8A93A"/>
+        <circle cx="210" cy="150" r="4" fill="#12172B"/>
+        <circle cx="90" cy="200" r="4" fill="#12172B"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>About</h2>
+      <span class="section-num">01</span>
+    </div>
+    <p class="about-text">
+      I'm Shamkar Kumar, a digital marketer with a background in building and running online campaigns end to end — from strategy and content to performance tracking. I like working where creativity meets data: crafting a message that resonates, then proving it worked with the numbers.
+      <br><br>
+      <em>(Replace this paragraph with your own summary — your specialties, years of experience, and what kind of brands or projects you enjoy working on.)</em>
+    </p>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Education</h2>
+      <span class="section-num">02</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-period">2023 – 2024</div>
+      <div>
+        <div class="edu-degree">Diploma / Certification in Digital Marketing</div>
+        <div class="edu-school">Institute Name Here</div>
+        <div class="edu-notes">Coursework covering SEO, SEM, social media marketing, email marketing, content strategy, and web analytics.</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-period">Year – Year</div>
+      <div>
+        <div class="edu-degree">Add your prior degree here</div>
+        <div class="edu-school">School / University Name</div>
+        <div class="edu-notes">e.g. Bachelor's degree, field of study, notable achievements.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <span class="section-num">03</span>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-item"><span class="skill-name">SEO</span><div class="skill-bar"><span style="width:85%"></span></div></div>
+      <div class="skill-item"><span class="skill-name">Social Media Marketing</span><div class="skill-bar"><span style="width:90%"></span></div></div>
+      <div class="skill-item"><span class="skill-name">Google Ads / PPC</span><div class="skill-bar"><span style="width:75%"></span></div></div>
+      <div class="skill-item"><span class="skill-name">Content Strategy</span><div class="skill-bar"><span style="width:80%"></span></div></div>
+      <div class="skill-item"><span class="skill-name">Email Marketing</span><div class="skill-bar"><span style="width:70%"></span></div></div>
+      <div class="skill-item"><span class="skill-name">Analytics & Reporting</span><div class="skill-bar"><span style="width:82%"></span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <span class="section-num">04</span>
+    </div>
+    <div class="project-list">
+      <div class="project-item">
+        <div>
+          <div class="project-name">Fitness Empire</div>
+          <div class="project-desc">A gym & fitness website — services, classes, membership info, and a blog, built and run end to end.</div>
+        </div>
+        <a class="project-link" href="https://fitnessempire.online/" target="_blank" rel="noopener noreferrer">Visit site ↗</a>
+      </div>
+      <div class="project-item">
+        <div>
+          <div class="project-name">Fitness Empire — Blog</div>
+          <div class="project-desc">A content blog covering workouts, diet plans, and fitness tips, published regularly to grow organic reach.</div>
+        </div>
+        <a class="project-link" href="https://fitnessempire73.blogspot.com/" target="_blank" rel="noopener noreferrer">Visit blog ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Experience</h2>
+      <span class="section-num">05</span>
+    </div>
+    <div class="exp-item">
+      <div class="exp-top">
+        <div><span class="exp-role">Digital Marketing Intern / Executive</span> — <span class="exp-org">Company Name</span></div>
+        <div class="exp-period">Month Year – Present</div>
+      </div>
+      <div class="exp-desc">Describe what you did — campaigns run, platforms managed, and results achieved (e.g. "Grew organic traffic by X% over 6 months" or "Managed ad spend of ₹X with Y ROAS").</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-top">
+        <div><span class="exp-role">Freelance / Project Work</span> — <span class="exp-org">Client or Project Name</span></div>
+        <div class="exp-period">Month Year – Month Year</div>
+      </div>
+      <div class="exp-desc">Add another role or project here, with a brief outcome-focused description.</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <h2>Let's work together</h2>
+        <p style="color:#C9CCD9; margin-top:8px;">Open to digital marketing roles and freelance projects.</p>
+        <p style="color:#C9CCD9; margin-top:6px;">kumarshankar4787@gmail.com</p>
+        <p style="color:#C9CCD9; margin-top:2px;">@shankarkapadia_855</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:kumarshankar4787@gmail.com">Email</a>
+        <a href="https://www.instagram.com/shankarkapadia_855" target="_blank" rel="noopener noreferrer">Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Shamkar Kumar. Built as a starting template — replace placeholder text with your own details.
+</footer>
+
+</body>
+</html>
